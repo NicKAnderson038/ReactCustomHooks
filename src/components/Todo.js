@@ -24,7 +24,7 @@ const todo = props => {
   const [todoList, dispatch] = useReducer(todoListReducer, []);
 
   useEffect(() => {
-    axios.get('https://test-3e15a.firebaseio.com/todos.json').then(result => {
+    axios.get('https://react-custom-hooks.firebaseio.com//todos.json').then(result => {
       console.log(result);
       const todoData = result.data;
       const todos = [];
@@ -58,16 +58,16 @@ const todo = props => {
   // }, []);
 
   const todoAddHandler = () => {
-    
+
     const todoName = todoInput.value;
 
     axios
-      .post('https://test-3e15a.firebaseio.com/todos.json', { name: todoName })
+      .post('https://react-custom-hooks.firebaseio.com//todos.json', { name: todoName })
       .then(res => {
         setTimeout(() => {
           const todoItem = { id: res.data.name, name: todoName };
           dispatch({ type: 'ADD', payload: todoItem });
-        }, 3000);
+        }, 2000);
       })
       .catch(err => {
         console.log(err);
@@ -76,7 +76,7 @@ const todo = props => {
 
   const todoRemoveHandler = todoId => {
     axios
-      .delete(`https://test-3e15a.firebaseio.com/todos/${todoId}.json`)
+      .delete(`https://react-custom-hooks.firebaseio.com//todos/${todoId}.json`)
       .then(res => {
         dispatch({ type: 'REMOVE', payload: todoId });
       })
