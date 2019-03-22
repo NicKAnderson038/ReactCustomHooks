@@ -6,11 +6,6 @@ import { useFormInput } from '../hooks/forms';
 
 const todo = props => {
   const [inputIsValid, setInputIsValid] = useState(false);
-  // const [todoName, setTodoName] = useState('');
-  // const [submittedTodo, setSubmittedTodo] = useState(null);
-  // const [todoList, setTodoList] = useState([]);
-  //   const [todoState, setTodoState] = useState({ userInput: '', todoList: [] });
-  // const todoInputRef = useRef();
   const todoInput = useFormInput();
 
   const todoListReducer = (state, action) => {
@@ -62,29 +57,8 @@ const todo = props => {
   //   };
   // }, []);
 
-  // useEffect(
-  //   () => {
-  //     if (submittedTodo) {
-  //       dispatch({ type: 'ADD', payload: submittedTodo });
-  //     }
-  //   },
-  //   [submittedTodo]
-  // );
-
-  // const inputChangeHandler = event => {
-  //   // setTodoState({
-  //   //   userInput: event.target.value,
-  //   //   todoList: todoState.todoList
-  //   // });
-  //   setTodoName(event.target.value);
-  // };
-
   const todoAddHandler = () => {
-    // setTodoState({
-    //   userInput: todoState.userInput,
-    //   todoList: todoState.todoList.concat(todoState.userInput)
-    // });
-
+    
     const todoName = todoInput.value;
 
     axios
